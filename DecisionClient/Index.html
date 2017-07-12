@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <meta charset="utf-8" content="no-cache" />
+
+    <base href="/" />
+
+    <!--inject-vendor:css-->
+    <link href="content/bootstrap.min.css" rel="stylesheet" />
+    <!--endinject-->
+
+</head>
+<body ng-app="app">
+    <!--<div data-ng-include="'app/layout/shell.html'"></div>-->
+    
+    <!--inject-vendor:js-->
+
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <!--endinject-->
+    <!--inject:js-->
+    <!--bootstrapping-->
+    <script src="app/app.js"></script>
+
+  
+   <!-- Samples Controllers -->
+    <!--<script src="app/core/sample.service.js"></script>
+    <script src="app/samples/sample.module.js"></script>
+    <script src="app/samples/sample1Ctrl.js"></script>-->
+    <!--sample by status controller-->
+    <!--<script src="app/samples/sampleStatusCtrl.js"></script>
+    <script src="app/samples/deleteCtrl.js"></script>
+    <script src="app/samples/EditCtrl.js"></script>-->
+
+    <script src="app/applicants/applicantCtrl.js"></script>
+
+    <div ng-controller="ApplicantCtrl as vm">
+        <div>
+            <form role="form" style="max-width: 500px;" name="form">
+                <strong class="error">{{ vm.error }}</strong>
+                <div class="form-group">
+                    <label for="firstname">
+                        FirstName:
+                    </label>
+                    <input type="text" class="form-control" id="firstname" ng-model="vm.firstName" required />
+                    <span ng-show="form.firstname && form.firstname.$invalid">The first name is required.</span>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">
+                        LastName:
+                    </label>
+                    <input type="text" class="form-control" id="lastname" ng-model="vm.lastName" required />
+                    <span ng-show="form.lastname && form.lastname.$invalid">The last name is required.</span>
+                </div>
+                <div class="form-group">
+                    <label for="dob">
+                        DOB:
+                    </label>
+                    <input type="date" class="form-control" id="dob" ng-model="vm.dob"  placeholder="yyyy-MM-dd" required" max = "{{vm.currentDate | date:'yyyy-MM-dd'}}"/>
+                </div>
+                <div class="form-group">
+                    <label for="gpa">
+                        GPA:
+                    </label>
+                    <input type="number" class="form-control" id="gpa" ng-model="vm.gpa" required  step="0.01" min="0" max="5" placeholder="Please Input a decimal number(0-5)" />
+                </div>
+               
+                <button type="submit" class="btn btn-default" ng-click="vm.save()" ng-disabled="!form.$valid">
+                    Submit
+                </button>
+            </form>  
+        </div>
+        <br />
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <td>FirstName</td>
+                        <td>LastName</td>
+                        <td>DOB</td>
+                        <td>GPA</td>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="applicant in vm.applicants">
+                        <td>{{ applicant.firstName}}</td>
+                        <td>{{ applicant.lastName }}</td>
+                        <td>{{ applicant.dob | date:'yyyy-MM-dd'  }}</td>
+                        <td>{{ applicant.gpa | number }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
