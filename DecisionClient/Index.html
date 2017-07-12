@@ -3,39 +3,18 @@
 <head>
     <title></title>
     <meta charset="utf-8" content="no-cache" />
-
     <base href="/" />
-
-    <!--inject-vendor:css-->
     <link href="content/bootstrap.min.css" rel="stylesheet" />
-    <!--endinject-->
-
 </head>
 <body ng-app="app">
-    <!--<div data-ng-include="'app/layout/shell.html'"></div>-->
-    
-    <!--inject-vendor:js-->
-
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    <!--endinject-->
-    <!--inject:js-->
-    <!--bootstrapping-->
+
     <script src="app/app.js"></script>
-
-  
-   <!-- Samples Controllers -->
-    <!--<script src="app/core/sample.service.js"></script>
-    <script src="app/samples/sample.module.js"></script>
-    <script src="app/samples/sample1Ctrl.js"></script>-->
-    <!--sample by status controller-->
-    <!--<script src="app/samples/sampleStatusCtrl.js"></script>
-    <script src="app/samples/deleteCtrl.js"></script>
-    <script src="app/samples/EditCtrl.js"></script>-->
-
     <script src="app/applicants/applicantCtrl.js"></script>
+    <script src="app/applicants/applicantService.js"></script>
 
     <div ng-controller="ApplicantCtrl as vm">
         <div>
